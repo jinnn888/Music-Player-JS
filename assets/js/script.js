@@ -6,6 +6,7 @@ const audio = document.querySelector('#audio');
 const prevBtn = document.querySelector('#prev');
 const nextBtn = document.querySelector('#next');
 const progressBar = document.querySelector('#progressBar');
+const songLists = document.querySelector('#song-lists');
 
 const songs = [
 	{
@@ -96,7 +97,6 @@ function updateProgress() {
 	} else {
 		progressBar.value = progress;
 	}
-	console.log(progress)
 
 	const value = progressBar.value;
 	const max = progressBar.max;
@@ -117,3 +117,17 @@ progressBar.addEventListener('input', () => {
 
 
 })
+
+
+songs.forEach((song, index) => {
+	songLists.innerHTML += `<p id='song-${index}' class='text-white' style='color: #ebdbb2;'>${song.title}</p>`
+})
+
+for (let i = 0; i < songs.length; i++) {
+	const song = document.querySelector(`#song-${i}`)
+
+
+	song.addEventListener('click', function() {
+		loadSong(i)
+	})
+}
