@@ -4,35 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <style type="text/css">
-    body {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background-color: #282828;
-      align-items: center;
-    }
-    #progressBar {
-      -webkit-appearance: none;  /* Remove default styling */
-      width: 100%;               /* Make the range input span the full width */
-      height: 4px;               /* Set the height of the track */
-      background: #fbf1c7;          /* Set the background color of the track */
-      border-radius: none;       /* Round the corners of the track */
-      outline: none;             /* Remove the outline when focused */
-    }
-
-    #progressBar::-webkit-slider-thumb {
-      -webkit-appearance: none;  /* Remove default styling */
-      width: 10px;               /* Set the width of the thumb */
-      height: 10px;              /* Set the height of the thumb */
-      background: #665c54;       /* Change the color of the thumb (pointer) */
-      border-radius: 50%;        /* Make the thumb circular */
-      cursor: pointer;          /* Change cursor to pointer when hovering */
-    }
-
-  </style>
+  <title>NewJeans - Music Player</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Add Font Awesome CDN -->
 </head>
@@ -40,10 +13,9 @@
 <body>
   <div class='w-full shadow-sm rounded flex flex-row items-center space-x-12 flex-wrap p-12 z-50 justify-center'>
     <div>
-
-      <img src="" class=' mn-w-[250px] h-[250px] object-cover' id='song-cover'>
+      <img src="" class='w-[250px] h-[250px] object-cover' id='song-cover'>
       <div class='p-2'>
-        <input type="range" id="progressBar" value="0" max="100" '>
+        <input type="range" id="progressBar" value="0" max="100" class='cursor-pointer'>
         <audio src='' id='audio'></audio>
         <h4 class='text-white' id='song-title'>Hurt - Newjeans</h4>
         <span style='background-color: #83a598 ; color: #504945' class='text-sm text-white items-end w-full' id='song-artist'>NewJeans</span>
@@ -64,11 +36,13 @@
         </button>
       </div>
     </div>
-
-    <div class='flex-grow h-full border border-2 p-4' style='border-color: #504945;' >
+    <div class='flex-grow h-full '>
+      <h2 class='header-text text-6xl text-white text-center'>NEWJEANS</h2>      
+    <div class='border border-2 p-4' style='border-color: #504945;' >
       <div id='song-lists'>
         <!-- <p class='text-white' style='color: #ebdbb2;'>Newjeans - hurt</p> -->
       </div>
+    </div>
     </div>
 
 

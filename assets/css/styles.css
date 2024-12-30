@@ -1,1 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
+body {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #282828;
+	align-items: center;
+}
+#progressBar {
+	-webkit-appearance: none;  /* Remove default styling */
+	width: 100%;               /* Make the range input span the full width */
+	height: 4px;               /* Set the height of the track */
+	background: #fbf1c7;          /* Set the background color of the track */
+	border-radius: none;       /* Round the corners of the track */
+	outline: none;             /* Remove the outline when focused */
+}
 
+#progressBar::-webkit-slider-thumb {
+	-webkit-appearance: none;  /* Remove default styling */
+	width: 10px;               /* Set the width of the thumb */
+	height: 10px;              /* Set the height of the thumb */
+	background: #665c54;       /* Change the color of the thumb (pointer) */
+	border-radius: 50%;        /* Make the thumb circular */
+	cursor: pointer;          /* Change cursor to pointer when hovering */
+}
+.active-song {
+	background-color: #83a598;
+}
+
+.header-text {
+  font-family: "Pixelify Sans", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}

@@ -12,22 +12,22 @@ const songs = [
 	{
 		title: 'Super Natural',
 		image: './assets/images/new-album.png',
-		artist: 'NewJeans',
-		music: './assets/audio/nj-hurt.mp3'
+		artist: 'New Jeans',
+		music: './assets/audio/supernatural.mp3'
 
 	},
 	{
 		title: 'Bubblegum',
 		image: './assets/images/new-album.png',
-		artist: 'NewJeans',
-		music: './assets/audio/nj-hurt.mp3'
+		artist: 'New Jeans',
+		music: './assets/audio/bubblegum.mp3'
 
 
 	},
 	{
 		title: 'Hurt',
 		image: './assets/images/hurt.jpeg',
-		artist: 'NewJeans',
+		artist: 'New Jeans',
 		music: './assets/audio/nj-hurt.mp3'
 	}
 
@@ -43,11 +43,24 @@ function loadSong(index) {
 	songCover.src = song.image;
 	audio.src = song.music;
 
+	// im bad at naming variables
+	songs.forEach((_, i) => {
+		const songElement = document.querySelector(`#song-${i}`);
+		if (songElement) {
+			songElement.classList.remove('active-song');
+		}
+	});
+
+	const songInPicker = document.querySelector(`#song-${index}`)
+	if (songInPicker) {
+		songInPicker.classList.add('active-song')
+	}
 }
 
 playPauseBtn.addEventListener('click', handlePlayEvent)
 prevBtn.addEventListener('click', playPrevSong)
 nextBtn.addEventListener('click', playNextSong)
+audio.addEventListener('ended', playNextSong)
 
 function handlePlayEvent() {
 	const currentImage = playPauseBtn.querySelector('img')
@@ -71,6 +84,8 @@ function pauseSong() {
 }
 
 function playNextSong() {
+	pauseSong()
+
 	songIndex++;
 
 	if (songIndex > songs.length - 1) {
@@ -81,6 +96,8 @@ function playNextSong() {
 }
 
 function playPrevSong() {
+	pauseSong()
+
 	songIndex--;
 
 	if (songIndex < 0) {
@@ -120,7 +137,7 @@ progressBar.addEventListener('input', () => {
 
 
 songs.forEach((song, index) => {
-	songLists.innerHTML += `<p id='song-${index}' class='text-white' style='color: #ebdbb2;'>${song.title}</p>`
+	songLists.innerHTML += `<p id='song-${index}' class='cursor-pointer text-white' style='color: #ebdbb2;'>${song.title}</p>`
 })
 
 for (let i = 0; i < songs.length; i++) {
@@ -128,6 +145,7 @@ for (let i = 0; i < songs.length; i++) {
 
 
 	song.addEventListener('click', function() {
+		pauseSong()
 		loadSong(i)
 	})
 }
