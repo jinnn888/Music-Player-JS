@@ -91,7 +91,12 @@ function playPrevSong() {
 }
 function updateProgress() {
 	const progress = (audio.currentTime / audio.duration) * 100;
-	progressBar.value = progress;
+	if (isNaN(progress)) {
+		progressBar.value = 0;
+	} else {
+		progressBar.value = progress;
+	}
+	console.log(progress)
 
 	const value = progressBar.value;
 	const max = progressBar.max;
